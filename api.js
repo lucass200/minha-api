@@ -12,7 +12,7 @@ const API_KEY = 'minha-chave-secreta-123';
 async function criarTeste(req, res) {
   const chave = req.headers['x-api-key'] || req.body.api_key;
   if (chave !== API_KEY) {
-    return res.status(401).json({ sucesso: false, erro: 'Chave de API inv¨¢lida' });
+    return res.status(401).json({ sucesso: false, erro: 'Chave de API invÂ¨Â¢lida' });
   }
 
   try {
@@ -21,7 +21,7 @@ async function criarTeste(req, res) {
 
     const response = await axios.post(
       `https://api.painelcliente.com/trial_create/${TOKEN}`,
-      { secret: SECRET, username, password, idbouquet: BOUQUET, notes: 'Teste via API pr¨®pria' }
+      { secret: SECRET, username, password, idbouquet: BOUQUET, notes: 'Teste via API prÂ¨Â®pria' }
     );
 
     const data = response.data;
@@ -47,4 +47,5 @@ async function criarTeste(req, res) {
 app.post('/teste', criarTeste);
 app.post('/teste.php', criarTeste);
 
-app.listen(3000, () => console.log('API rodando'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`API rodando na porta ${PORT}`));
