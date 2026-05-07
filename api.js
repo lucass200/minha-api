@@ -3,7 +3,8 @@ const axios = require('axios');
 const app = express();
 
 app.use(express.json());
-
+const cors = require('cors');
+app.use(cors());
 const TOKEN   = 'PANELCLIENT_S2B0G-XSVY6-O9TLE-IR37T';
 const SECRET  = '2f7cbf042b9fe5f680d3c60c3a26507d';
 const BOUQUET = [7333637];
